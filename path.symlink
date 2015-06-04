@@ -1,0 +1,1 @@
+export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/jorden/.local/bin:/home/jorden/bin:/home/jorden/Android/Sdk/platform-tools:/home/jorden/Android/Sdk/tools"

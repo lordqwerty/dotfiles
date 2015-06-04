@@ -1,0 +1,20 @@
+# General shortcuts
+alias cls='clear'
+alias du='du -h'
+alias ..='cd ..'
+alias cp='rsync --progress -ah'
+
+# Useful stuff
+alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
+alias sshtunnel='ssh -C2qTnN -D 10000 apollo.apisnetworks.com'
+alias sedrecurse='find . -type f -print | xargs sed -i ""'
+alias pathlist='echo $PATH | sed -e "s/:/\n/g"'
+
+# Web-dev related stuff
+alias serve='python -m SimpleHTTPServer &'
+
+# Source control
+alias master='git checkout master'
+
+# Quick Access
+alias p='cd $WORKSPACE'

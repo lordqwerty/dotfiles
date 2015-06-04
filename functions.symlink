@@ -1,0 +1,22 @@
+function chpwd() {
+emulate -L zsh
+
+if [ -d ".git" ]; then
+echo "$bg[red]$fg[white] Git status $reset_color"
+git status
+echo ''
+fi
+
+if [ -e "todo.txt" ]; then
+echo "$bg[red]$fg[white] TODO list $reset_color"
+cat todo.txt
+echo ''
+fi
+}
+
+##################################
+# View graph of commits per hour #
+##################################
+function commitgraph() {
+  git log --pretty=format:'%an: %at' --author="Simon Frost" | awk '{system("date -r "$NF" '+%H'")}' | sort | uniq -c | ruby -e 'puts STDIN.readlines.inject(Hash[Array("00".."23").map{|x| [x,0]}]) {|h, x| h.merge(Hash[*x.split(" ").reverse])}.sort.map(&:last)' | spark
+}

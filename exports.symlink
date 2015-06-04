@@ -1,0 +1,9 @@
+export WORKSPACE=$HOME/Code
+
+LD_LIBRARY_PATH=$JAVA_HOME/jre/lib/amd64
+export LD_LIBRARY_PATH
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$JAVA_HOME/jre/lib/amd64/client
+export LD_LIBRARY_PATH
+
+export TERM=xterm-256color
