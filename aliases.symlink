@@ -6,7 +6,6 @@ alias cp='rsync --progress -ah'
 
 # Useful stuff
 alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
-alias sshtunnel='ssh -C2qTnN -D 10000 apollo.apisnetworks.com'
 alias sedrecurse='find . -type f -print | xargs sed -i ""'
 alias pathlist='echo $PATH | sed -e "s/:/\n/g"'
 
