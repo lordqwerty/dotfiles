@@ -18,5 +18,5 @@ fi
 # View graph of commits per hour #
 ##################################
 function commitgraph() {
-  git log --pretty=format:'%an: %at' --author="Simon Frost" | awk '{system("date -r "$NF" '+%H'")}' | sort | uniq -c | ruby -e 'puts STDIN.readlines.inject(Hash[Array("00".."23").map{|x| [x,0]}]) {|h, x| h.merge(Hash[*x.split(" ").reverse])}.sort.map(&:last)' | spark
+  git log --pretty=format:'%an: %at' --author="Jorden Whitefield" | awk '{system("date -r "$NF" '+%H'")}' | sort | uniq -c | ruby -e 'puts STDIN.readlines.inject(Hash[Array("00".."23").map{|x| [x,0]}]) {|h, x| h.merge(Hash[*x.split(" ").reverse])}.sort.map(&:last)' | spark
 }
