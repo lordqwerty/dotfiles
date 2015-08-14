@@ -74,8 +74,6 @@ inoremap <C-U> <C-G>u<C-U>
 " Allow :w!! to ask for sudo permission
 cmap w!! %!sudo tee > /dev/null %
 
-source ~/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-
 set laststatus=2
 set noshowmode
 set t_Co=256
