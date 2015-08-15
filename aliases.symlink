@@ -3,6 +3,7 @@ alias cls='clear'
 alias du='du -h'
 alias ..='cd ..'
 alias cp='rsync --progress -ah'
+alias frootvpn='sudo openvpn /etc/openvpn/frootvpn.ovpn'
 
 # Useful stuff
 alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
