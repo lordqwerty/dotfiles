@@ -1,0 +1,38 @@
+# Load powerline config
+# source ~/.local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+set-option -g default-terminal "screen-256color"
+
+# Add a shortcut for reloading .tmux.conf
+bind-key r source-file ~/.tmux.conf \; display 'Config reloaded!'
+
+set -g prefix C-a
+unbind-key C-b
+bind-key C-a send-prefix
+
+set -g mouse-resize-pane on
+set -g mouse-select-pane on
+set -g mouse-select-window on
+
+# Set the window height to be 2 rows shorter than iTerm's config'
+set -g force-height 48
+
+# Highlight activity in other windows
+setw -g monitor-activity on
+set -g visual-activity on
+set -g visual-content on
+set -g visual-silence on
+set -g visual-bell off
+set -g bell-action any
+
+# Start window numbering at 1 instead of 0 - doesn't work!
+set-option -g base-index 1
+set-window-option -g pane-base-index 1
+
+# Display messages for a bit longer
+set -g display-panes-time 1500
+set -g display-time 1500
+
+# Open man/SSH in new split
+bind-key / command-prompt -p "Man:" "split-window -h 'exec man %%'"
+bind-key S command-prompt -p "SSH:" "split-window -h 'exec ssh %%'"
+bind-key V command-prompt -p "Vim:" "split-window -h 'exec vim %%'"
