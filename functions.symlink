@@ -1,5 +1,4 @@
 function chpwd() {
-emulate -L zsh
 
 if [ -d ".git" ]; then
 echo "$bg[red]$fg[white] Git status $reset_color"
