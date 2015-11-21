@@ -1,2 +1,2 @@
 export WORKSPACE=$HOME/devel
-
+export SVN_EDITOR=vim
