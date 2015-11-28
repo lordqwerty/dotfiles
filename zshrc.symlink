@@ -56,14 +56,14 @@ source ~/.functions
 source ~/.path
 source ~/.exports
 
+case $TERM in
+  xterm*)
+    precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+    ;;
+esac
+
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
   export EDITOR='gedit'
 fi
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "/home/jorden/.gvm/bin/gvm-init.sh" ]] && source "/home/jorden/.gvm/bin/gvm-init.sh"
