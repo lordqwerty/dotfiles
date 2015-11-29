@@ -12,6 +12,7 @@ set showcmd " Display incomplete commands
 set incsearch " Do incremental searching
 set nobackup " Do not create backup file
 set noswapfile " Do not create .swp files
+set nowb
 set autoread " Reload files changed outside vim
 syntax on " Enable syntax highlighting
 set hlsearch " Highlight last used search pattern
@@ -27,11 +28,46 @@ filetype plugin on
 filetype indent on
 set autoindent
 set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+"set smarttab
+"set shiftwidth=2
+"set softtabstop=2
+"set tabstop=2
 set expandtab
+
+" Set extra options when running in GUI mode
+if has("gui_running")
+    set guioptions-=T
+    set guioptions+=e
+    set t_Co=256
+    set guitablabel=%M\ %t
+endif
+
+" Set utf8 as standard encoding and en_US as the standard language
+set encoding=utf8
+
+" Use Unix as the standard file type
+set ffs=unix,dos,mac
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+ " => Text, tab and indent related
+ """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use spaces instead of tabs
+set expandtab
+
+" Be smart when using tabs ;)
+set smarttab
+
+" 1 tab == 4 spaces
+set shiftwidth=4
+set tabstop=4
+
+" Linebreak on 500 characters
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indent
+set wrap "Wrap lines
 
 set foldmethod=indent " Fold based on indent
 set foldnestmax=3 " Deepest fold is 3 levels
