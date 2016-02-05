@@ -47,7 +47,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git svn)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,6 +55,7 @@ source ~/.aliases
 source ~/.functions
 source ~/.path
 source ~/.exports
+source ~/.rvm/scripts/rvm
 
 case $TERM in
   xterm*)
@@ -67,3 +68,5 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='gedit'
 fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
