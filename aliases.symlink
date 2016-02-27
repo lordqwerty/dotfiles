@@ -9,7 +9,7 @@ alias frootvpn='sudo openvpn /etc/openvpn/frootvpn.ovpn'
 alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
 alias sedrecurse='find . -type f -print | xargs sed -i ""'
 alias pathlist='echo $PATH | sed -e "s/:/\n/g"'
-
+alias mdv='$HOME/devel/clones/terminal_markdown_viewer/mdv.py'
 # Web-dev related stuff
 alias serve='python -m SimpleHTTPServer &'
 
