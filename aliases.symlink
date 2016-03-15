@@ -18,4 +18,3 @@ alias master='git checkout master'
 
 # Quick Access
 alias p='cd $WORKSPACE'
-alias gdbopentee='gdb attach `pgrep tee_launcher`'
