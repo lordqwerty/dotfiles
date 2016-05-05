@@ -3,13 +3,13 @@ alias cls='clear'
 alias du='du -h'
 alias ..='cd ..'
 alias cp='rsync --progress -ah'
-alias frootvpn='sudo openvpn /etc/openvpn/frootvpn.ovpn'
 
 # Useful stuff
 alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
 alias sedrecurse='find . -type f -print | xargs sed -i ""'
 alias pathlist='echo $PATH | sed -e "s/:/\n/g"'
-alias mdv='$HOME/devel/clones/terminal_markdown_viewer/mdv.py'
+alias pipupgrade='pip freeze --local | grep -v "^\-e" | cut -d = -f 1  | xargs -n1 pip install -U'
+
 # Web-dev related stuff
 alias serve='python -m SimpleHTTPServer &'
 
@@ -18,3 +18,5 @@ alias master='git checkout master'
 
 # Quick Access
 alias p='cd $WORKSPACE'
+
+alias cppcompile='c++ -std=c++11 -stdlib=libc++'
