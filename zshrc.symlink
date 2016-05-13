@@ -68,5 +68,3 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
   export EDITOR='gedit'
 fi
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
