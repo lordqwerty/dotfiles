@@ -5,6 +5,7 @@ export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
 export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
 export GOPATH=$HOME/devel/go
-export PATH=$PATH:$GOPATH/bin:$HOME/Applications/bin:$HOME/Applications/maude
-export MAUDE_LIB=$HOME/Applications/maude
+export PATH=$PATH:$GOPATH/bin:$HOME/Applications/bin:$HOME/.local/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools
+export MAUDE_LIB="/usr/local/Cellar/maude/2.7"
 
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
