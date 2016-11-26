@@ -19,4 +19,3 @@ alias master='git checkout master'
 # Quick Access
 alias p='cd $WORKSPACE'
 
-alias cppcompile='c++ -std=c++11 -stdlib=libc++'
