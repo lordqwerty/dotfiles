@@ -4,4 +4,4 @@ export SVN_EDITOR=vim
 
 export GOPATH=$HOME/devel/go
 export PATH=$PATH:$GOPATH/bin:$HOME/bin:$HOME/.local/bin
-# export MAUDE_LIB="/usr/local/Cellar/maude/2.7"
+export MAUDE_LIB="/opt/maude"
