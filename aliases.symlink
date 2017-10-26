@@ -19,4 +19,6 @@ alias master='git checkout master'
 # Quick Access
 alias p='cd $WORKSPACE'
 
-alias cppcompile='c++ -std=c++11 -stdlib=libc++'
+# Docker
+alias docker-start='sudo systemctl start docker && echo "Docker started."'
+alias docker-stop='sudo systemctl stop docker && echo "Docker stopped."'

@@ -1,5 +1,5 @@
 [alias]
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  lg = log --color --graph --pretty=format:'%C(black)%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
   co = checkout
   ec = config --global -e
   up = !git pull --rebase --prune $@ && git submodule update --init --recursive
@@ -14,9 +14,11 @@
   bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
   backup = !git push bitbucket
   st = status -sb
+  dryrpune = !git remote prune origin --dry-run
+    rprune = !remote prune origin
 [user]
 	name = Jorden Whitefield
-	email = j.whitefield@surrey.ac.uk
+	email = jorden.whitefield@googlemail.com
 [push]
 	default = simple
 [core]

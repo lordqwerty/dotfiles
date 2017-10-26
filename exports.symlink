@@ -1,12 +1,7 @@
 export WORKSPACE=$HOME/devel
 export EDITOR=vim
 export SVN_EDITOR=vim
-export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
-export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
 
-export GOPATH=$HOME/devel/go
-export PATH=$PATH:$GOPATH/bin:$HOME/Applications/bin:$HOME/.local/bin:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools
-#export MAUDE_LIB="/usr/local/Cellar/maude/2.7"
-
-export PATH="/usr/local/sbin:$PATH"
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+export PATH=$PATH:/usr/local/go/bin/:$WORKSPACE/go/bin/:/home/jw00241/.local/bin
+export MAUDE_LIB=/opt/maude/
+export GOPATH=$WORKSPACE/go
