@@ -15,7 +15,8 @@
   backup = !git push bitbucket
   st = status -sb
   dryrpune = !git remote prune origin --dry-run
-    rprune = !remote prune origin
+  rprune = !remote prune origin
+  ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
 [user]
 	name = Jorden Whitefield
 	email = jorden.whitefield@googlemail.com
