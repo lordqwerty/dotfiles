@@ -1,9 +1,8 @@
 export WORKSPACE=$HOME/devel
 export EDITOR=vim
 export SVN_EDITOR=vim
-export BROWSER=google-chrome
 
 export GOPATH=$WORKSPACE/go
 export MAUDE_LIB=$HOME/.local/maude/
 
-export PATH=$WORKSPACE/go/bin:$HOME/.local/bin:$PATH
+export PATH=$GOPATH/bin:$HOME/.local/bin:$PATH
