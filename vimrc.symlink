@@ -672,6 +672,8 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
+imap <C-L> <Esc>
+
 if exists('+colorcolumn')
   set colorcolumn=80
 else
