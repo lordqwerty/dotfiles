@@ -76,7 +76,6 @@ Plug 'honza/vim-snippets'
 
 "" Color
 Plug 'tomasr/molokai'
-Plug 'AlessandroYorba/Sierra'
 
 "*****************************************************************************
 "" Custom bundles
@@ -198,8 +197,7 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-    let g:sierra_Sunset = 1
-    colorscheme sierra
+    colorscheme molokai
 endif
 
 set mousemodel=popup
@@ -221,7 +219,6 @@ else
   let g:indentLine_char = '┆'
   let g:indentLine_faster = 1
 
-  
   if $COLORTERM == 'gnome-terminal'
     set term=gnome-256color
   else
@@ -229,7 +226,6 @@ else
       set term=xterm-256color
     endif
   endif
-  
 endif
 
 
