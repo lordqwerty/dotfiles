@@ -17,6 +17,7 @@ alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
 alias sedrecurse='find . -type f -print | xargs sed -i ""'
 alias pathlist='echo $PATH | sed -e "s/:/\n/g"'
 alias pipupgrade='pip freeze --local | grep -v "^\-e" | cut -d = -f 1  | xargs -n1 pip install -U'
+alias wsldisplay="export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0"
 
 # Web-dev related stuff
 alias serve='python3 -m http.server'
