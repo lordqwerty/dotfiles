@@ -1,21 +1,28 @@
-" vim-bootstrap 
+" vim-bootstrap 2022-01-10 21:22:15
 
 "*****************************************************************************
-"" Vim-PLug core
+"" Vim-Plug core
 "*****************************************************************************
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+if has('win32')&&!has('win64')
+  let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
+else
+  let curl_exists=expand('curl')
+endif
 
-let g:vim_bootstrap_langs = "c,go,html,javascript,python"
-let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+let g:vim_bootstrap_langs = "go,html,javascript,python"
+let g:vim_bootstrap_editor = "neovim"				" nvim or vim
+let g:vim_bootstrap_theme = "molokai"
+let g:vim_bootstrap_frams = ""
 
 if !filereadable(vimplug_exists)
-  if !executable("curl")
+  if !executable(curl_exists)
     echoerr "You have to install curl or first install vim-plug yourself!"
     execute "q!"
   endif
   echo "Installing Vim-Plug..."
   echo ""
-  silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  silent exec "!"curl_exists" -fLo " . shellescape(vimplug_exists) . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
   let g:not_finish_vimplug = "yes"
 
   autocmd VimEnter * PlugInstall
@@ -38,11 +45,12 @@ Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'Raimondi/delimitMate'
 Plug 'majutsushi/tagbar'
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'Yggdroot/indentLine'
-Plug 'avelino/vim-bootstrap-updater'
-Plug 'sheerun/vim-polyglot'
+Plug 'editor-bootstrap/vim-bootstrap-updater'
 Plug 'tpope/vim-rhubarb' " required by fugitive to :Gbrowse
+Plug 'tomasr/molokai'
+
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -64,17 +72,9 @@ Plug 'xolox/vim-session'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-"" Color
-Plug 'tomasr/molokai'
-
 "*****************************************************************************
 "" Custom bundles
 "*****************************************************************************
-
-" c
-Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-Plug 'ludwig/split-manpage.vim'
-
 
 " go
 "" Go Lang Bundle
@@ -84,7 +84,7 @@ Plug 'fatih/vim-go', {'do': ':GoInstallBinaries'}
 " html
 "" HTML Bundle
 Plug 'hail2u/vim-css3-syntax'
-Plug 'gorodinskiy/vim-coloresque'
+Plug 'gko/vim-coloresque'
 Plug 'tpope/vim-haml'
 Plug 'mattn/emmet-vim'
 
@@ -121,7 +121,7 @@ filetype plugin indent on
 set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
-
+set ttyfast
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -166,7 +166,14 @@ set ruler
 set number
 
 let no_buffers_menu=1
-silent! colorscheme molokai
+colorscheme molokai
+
+
+" Better command line completion 
+set wildmenu
+
+" mouse support
+set mouse=a
 
 set mousemodel=popup
 set t_Co=256
@@ -188,13 +195,27 @@ else
   let g:indentLine_faster = 1
 
   
+  if $COLORTERM == 'gnome-terminal'
+    set term=gnome-256color
+  else
+    if $TERM == 'xterm'
+      set term=xterm-256color
+    endif
+  endif
+  
 endif
 
+
+if &term =~ '256color'
+  set t_ut=
+endif
 
 
 "" Disable the blinking cursor.
 set gcr=a:blinkon0
+
 set scrolloff=3
+
 
 "" Status bar
 set laststatus=2
@@ -243,13 +264,13 @@ cnoreabbrev Qall qall
 
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+let g:NERDTreeIgnore=['node_modules','\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
 let g:NERDTreeShowBookmarks=1
 let g:nerdtree_tabs_focus_on_files=1
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
 let g:NERDTreeWinSize = 50
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,*.db,*.sqlite,*node_modules/
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 
@@ -320,13 +341,13 @@ noremap <Leader>v :<C-u>vsplit<CR>
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
-noremap <Leader>gc :Gcommit<CR>
-noremap <Leader>gsh :Gpush<CR>
-noremap <Leader>gll :Gpull<CR>
-noremap <Leader>gs :Gstatus<CR>
-noremap <Leader>gb :Gblame<CR>
-noremap <Leader>gd :Gvdiff<CR>
-noremap <Leader>gr :Gremove<CR>
+noremap <Leader>gc :Git commit --verbose<CR>
+noremap <Leader>gsh :Git push<CR>
+noremap <Leader>gll :Git pull<CR>
+noremap <Leader>gs :Git<CR>
+noremap <Leader>gb :Git blame<CR>
+noremap <Leader>gd :Gvdiffsplit<CR>
+noremap <Leader>gr :GRemove<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
@@ -439,11 +460,6 @@ nnoremap <Leader>o :.Gbrowse<CR>
 "" Custom configs
 "*****************************************************************************
 
-" c
-autocmd FileType c setlocal tabstop=4 shiftwidth=4 expandtab
-autocmd FileType cpp setlocal tabstop=4 shiftwidth=4 expandtab
-
-
 " go
 " vim-go
 " run :GoBuild or :GoTestCompile based on the go file
@@ -555,8 +571,6 @@ let g:jedi#smart_auto_mappings = 0
 let g:airline#extensions#virtualenv#enabled = 1
 
 " Syntax highlight
-" Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
 let python_highlight_all = 1
 
 
@@ -608,21 +622,3 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
-
-imap <C-L> <Esc>
-
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-
-"" Auto relaod files
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
