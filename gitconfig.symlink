@@ -20,9 +20,12 @@
 [user]
 	name = Jorden Whitefield
 	email = jorden.whitefield@googlemail.com
+	signingkey = CF5376B1888E5E42
 [push]
 	default = simple
 [core]
 	editor = vim
 [color]
 	ui = auto
+[commit]
+	gpgsign = true

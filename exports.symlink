@@ -1,6 +1,7 @@
 export WORKSPACE=$HOME/devel
 export EDITOR=vim
 export SVN_EDITOR=vim
+export GPG_TTY=$(tty)
 
 export GOPATH=$WORKSPACE/go
 
