@@ -20,12 +20,15 @@
 [user]
 	name = Jorden Whitefield
 	email = jorden.whitefield@googlemail.com
-	signingkey = CF5376B1888E5E42
 [push]
 	default = simple
 [core]
 	editor = vim
 [color]
 	ui = auto
-[commit]
-	gpgsign = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
