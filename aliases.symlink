@@ -10,6 +10,7 @@ alias l.='ls -d .*'
 alias grep='grep'
 alias egrep='egrep'
 alias fgrep='fgrep'
+alias docker='podman'
 
 # Useful stuff
 alias myip='ifconfig | grep broadcast | awk -F " " '"'"'{print $2}'"'"
