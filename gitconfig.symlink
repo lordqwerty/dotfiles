@@ -17,7 +17,7 @@
   dryrpune = !git remote prune origin --dry-run
   rprune = !remote prune origin
   ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
-  hash = "!ghash() { git rev-parse --short HEAD:$@ ;}; ghash"
+  hash = "!f() { git rev-parse --short \"HEAD:$GIT_PREFIX$1\"; }; f"
 [user]
 	name = Jorden Whitefield
 	email = jorden.whitefield@googlemail.com
@@ -33,3 +33,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main
